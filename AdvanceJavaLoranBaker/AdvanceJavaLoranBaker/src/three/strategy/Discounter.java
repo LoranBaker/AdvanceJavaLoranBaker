@@ -1,8 +1,12 @@
 package three.strategy;
 
 import java.math.BigDecimal;
-
+@FunctionalInterface
 public interface Discounter {
     
-    public abstract BigDecimal applyDiscount(BigDecimal amount);
+   BigDecimal applyDiscount(BigDecimal amount);
+   
+   static Discounter newYearDiscount(){
+       return null;
+   }
 }

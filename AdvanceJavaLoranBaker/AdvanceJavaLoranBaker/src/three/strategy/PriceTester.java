@@ -7,6 +7,7 @@ public class PriceTester {
         BigDecimal price = BigDecimal.valueOf(212.53);
         System.out.println("Kada nisu snizenja " + price.toPlainString());
         System.out.println("Kada su snizenja " + new EasterDiscounter().applyDiscount(price));
-      
+        
+        
     }
 }
