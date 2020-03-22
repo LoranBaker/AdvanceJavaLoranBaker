@@ -6,6 +6,7 @@ import java.time.Month;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Person {
     private String name;
@@ -46,6 +47,24 @@ public class Person {
     public String toString() {
         return name + ", " + surname + ", " + gender.getName() + ", "+ birthday.toString();
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, birthday, gender);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Person)){
+            return false;
+    }
+        Person compardeObject = (Person) obj;
+        return name.equals(compardeObject.getName()) 
+                && surname.equals(compardeObject.getSurname())
+                && birthday.equals(compardeObject.getBirthday())
+                && gender.equals(compardeObject.getGender()); 
+    }
+    
     
     
     public static List<Person> socialNetwork(){

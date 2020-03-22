@@ -15,6 +15,8 @@ public class PersonUser {
         persons.stream().filter(p->p.getAge()>22.forEach(System.out::println));
         
         */
+        
+       
         printPersonOlderThan(persons, 30);
         System.out.println("");
         printPersonYoungerThan(persons, 20);
