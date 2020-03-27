@@ -3,7 +3,6 @@ package two1;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +17,17 @@ public class PersonExecutor {
         personExectuor.printPersonsOlderThan(persons, LocalDate.of(1999, Month.MARCH, 1));
         Set<Person> setOfPersons = new HashSet<>(persons);
         setOfPersons.forEach(perso -> System.out.println(perso));
+        System.out.println("print persons between dates");
+        personExectuor.printPersonsBetweenDates(persons, LocalDate.of(1998, Month.MARCH, 3), LocalDate.MAX);
+        
     }
+   /* 
+    void printPersons(List<Person>persons, CheckPerson checkPerson){
+        persons.stream()
+                .filter(p->checkPerson.check(p)) 
+                .forEach(it->System.out.println(it));
+    
+    }*/
     
     void printPersonsWithGender (List<Person>persons, Gender gender){
         for(int i = 0; i< persons.size(); i++){
@@ -41,5 +50,11 @@ public class PersonExecutor {
     void printPersonsYoungerThan(List<Person> persons, LocalDate date){
         persons.forEach(it->System.out.println(it));
         
+    }
+    void printPersonsBetweenDates(List<Person> persons, LocalDate fromDate, LocalDate toDate){
+        persons.stream()
+                .filter(p->p.getBirthday().isAfter(fromDate))
+                .filter(p->p.getBirthday().isBefore(toDate))
+                .forEach(it->System.out.println(it));
     }
 }
