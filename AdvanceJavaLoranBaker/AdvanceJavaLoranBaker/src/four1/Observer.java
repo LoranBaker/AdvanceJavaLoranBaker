@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package four.pattern;
+package four1;
 
 /**
  *
  * @author PC
  */
-public interface Observer {
-    public void update(float temperatura, float humidity, float pressure);
+public class Observer {
+    
 }
