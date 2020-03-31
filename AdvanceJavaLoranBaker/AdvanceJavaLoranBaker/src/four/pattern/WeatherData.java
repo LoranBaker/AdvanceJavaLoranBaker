@@ -8,21 +8,31 @@ package four.pattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WheatherData implements Subject {
+public class WeatherData implements Subject {
     
-    private final float temperature;
-    private final float humidty;
-    private final float pressure;
+    private  float temperature;
+    private  float humidty;
+    private  float pressure;
     
     
     private final List<Observer> observers = new ArrayList<>();
 
-    public WheatherData(float temperature, float humidty, float pressure) {
-        this.temperature = temperature;
+    public WeatherData(float temperature, float humidty, float pressure) {
+        this.temperature =temperature;
         this.humidty = humidty;
         this.pressure = pressure;
+        measurementChanged();
+    }
+    public void setMeasurement(float temp, float hum, float pre){
+        this.temperature = temp;
+        this.humidty = hum;
+        this.pressure = pre;
+        measurementChanged();
     }
     
+    private void measurementChanged(){
+        notifyObserver();
+    }
     
 
     @Override
@@ -38,7 +48,7 @@ public class WheatherData implements Subject {
     @Override
     public void notifyObserver() {
         for(Observer o : observers){
-            
+            o.update(temperature, humidty, pressure);
         }
     }
     
