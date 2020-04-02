@@ -17,7 +17,7 @@ public class HelloRunnable implements Runnable {
     public void run() {
         try{
         Thread.sleep(2000);
-        }catch(InterruptedException e){
+        }catch(InterruptedException e ){
             return;
         }
         System.out.println("Hello from " + Thread.currentThread().getName());
