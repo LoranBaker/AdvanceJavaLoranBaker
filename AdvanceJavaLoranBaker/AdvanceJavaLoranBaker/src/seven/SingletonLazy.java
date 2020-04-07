@@ -5,9 +5,10 @@
  */
 package seven;
 
+import java.io.ObjectStreamException;
 import java.io.Serializable;
 
-public class SingletonLazy implements Serializable {
+public class SingletonLazy implements Serializable, Cloneable {
     
     private static SingletonLazy SABIT;
     //lazy singletone
@@ -19,6 +20,16 @@ public class SingletonLazy implements Serializable {
         if(SABIT == null){
             SABIT = new SingletonLazy();
         }
+        return SABIT;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    private Object readResolve() throws ObjectStreamException{
         return SABIT;
     }
     

@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 public class SingletonExecutor {
     public static void main(String[] args) throws Exception {
         SingletonExecutor singletonExecutor = new SingletonExecutor();
-        ObjectPrinter printer = new ObjectPrinter();
+        SingletonExecutor.ObjectPrinter printer = singletonExecutor.new ObjectPrinter();
         //EAGER SINGLETON
         SingletonEager singleton1 = SingletonEager.getInstance();
         printer.print("singleton1",singleton1 );
@@ -28,7 +28,7 @@ public class SingletonExecutor {
             
     }
     
-    static class ObjectPrinter {
+    class ObjectPrinter {
     
         public void print(String message, Object singleton){
             System.out.println(String.format(" ime objekta: %s, HashCode: %d", message, singleton.hashCode()));

@@ -11,7 +11,7 @@ public class SingletonReflectionExecutor{
 
     public static void main(String[] args) throws Exception {
         SingletonExecutor singletonExecutor = new SingletonExecutor();
-        SingletonExecutor.ObjectPrinter printer = new SingletonExecutor.ObjectPrinter();
+        SingletonExecutor.ObjectPrinter printer = singletonExecutor.new ObjectPrinter();
 
         //SINGLETON LAZY
         SingletonLazy singletonLazy1 = SingletonLazy.getInstance();
